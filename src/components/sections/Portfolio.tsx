@@ -60,19 +60,19 @@ export default () => {
 								title="ACM"
 								description="Web chair"
 								image="https://cdn.mstacm.org/static/acm-logo.png"
-								link="/brokenlamp"
+								link="/acm"
 							/>
 							<BigBox
 								title="PickHacks"
 								description="Frontend developer"
 								image="https://pickhacks.io/images/pickhacks-logo.png"
-								link="/brokenlamp"
+								link="/pickhacks"
 							/>
 							<BigBox
 								title="Chihuahua Rescue Midwest"
 								description="Frontend developer"
 								image="https://www.chihuahuarescuemidwest.org/static/dogLogo-b78630d0ba87dfdd792f62feede14129.png"
-								link="/brokenlamp"
+								link="/chihuahua"
 							/>
 						</Vid>
 					</VidBox>

@@ -2,7 +2,7 @@ import React from "react";
 import Typist from "react-typist";
 import styled, { AnyStyledComponent } from "styled-components";
 import BackButton from "./BackButton";
-import { useWindowSize } from "react-use";
+
 interface IPortProps {
 	title: string;
 	image: string;
@@ -21,8 +21,8 @@ const Title: AnyStyledComponent = styled.div`
 	color: #2a9d8f;
 	padding-bottom: 6%;
 	padding-top: 6%;
-	@media (max-width: 500px) {
-		font-size: 15px;
+	@media (max-width: 1000px) {
+		padding-left: 10px;
 	}
 `;
 const Console: AnyStyledComponent = styled.span`
@@ -37,7 +37,8 @@ const Inline: AnyStyledComponent = styled.div`
 `;
 const Image: AnyStyledComponent = styled.img`
 	height: auto;
-	width: 50%;
+	display: flex;
+	width: 90%;
 `;
 const Desc: AnyStyledComponent = styled.div`
 	padding-bottom: 4%;
@@ -45,12 +46,12 @@ const Desc: AnyStyledComponent = styled.div`
 `;
 const TextGroup: AnyStyledComponent = styled.div`
 	display: flex;
-	padding-left: 20px;
-	width: 100%;
+
 	font-size: 20px;
 	flex-direction: column;
-	@media (max-width: 500px) {
-		font-size: 15px;
+	@media (max-width: 1000px) {
+		padding-left: 10px;
+		width: 90%;
 	}
 `;
 const Center: AnyStyledComponent = styled.div`
@@ -63,8 +64,8 @@ const Tech: AnyStyledComponent = styled.div`
 	padding-botom: 3%;
 	font-weight: bold;
 `;
-const Link: AnyStyledComponent = styled.button`
-	max-width: 130px;
+const LinkButton: AnyStyledComponent = styled.button`
+	width: 100px;
 	height: auto;
 	font-size: 20px;
 	border: none;
@@ -74,82 +75,52 @@ const Link: AnyStyledComponent = styled.button`
 	transition: all 0.1s linear;
 	margin: 2% 2% 2% 2%;
 	color: white;
-	background-color: #e9c46a;
+	background-color: #e76f51;
 	cursor: pointer;
-	padding: 2%;
+	padding: 10px;
 	&:hover {
 		transform: scale(1.05);
+	}
+	@media (max-width: 1000px) {
+		width: 100px;
 	}
 `;
 const Column: AnyStyledComponent = styled.div`
 	display: flex;
 	flex-direction: column;
 `;
-const main = (
-	<Group>
-		<div>
-			<BackButton />
-		</div>
 
-		<Title>
-			{" "}
-			<Inline>
-				<Console>~$</Console>
-			</Inline>
-			<Inline>
-				<Typist avgTypingDelay={100} cursor={{ show: true, blink: true }}>
-					{" "}
-					<Command>cd broken_lamp </Command>
-				</Typist>
-			</Inline>
-		</Title>
-		<Center>
-			<Image src="https://clay.sh/img/about/mrr.png" />
-			<Inline>
-				<TextGroup>
-					<Desc>
-						Broken lamp is currently developing a hosting platform to market off
-						Microsoft's push to new mincraft editions. Utilizing a bit of magic,
-						we can host servers for free, all the while developing modifications
-						for our servers to create a unique experience for each user.
-					</Desc>
-					<Inline>
-						<a>
-							{" "}
-							<Link>GitHub</Link>
-						</a>
+const ImageGroup: AnyStyledComponent = styled.div`
+	display: grid;
 
-						<Link>Live</Link>
-					</Inline>
-					<Tech>Tech: Express.js, React.js, TypeScript</Tech>
-				</TextGroup>
-			</Inline>
-		</Center>
-	</Group>
-);
+	grid-gap: 10px;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	@media (max-width: 1000px) {
+		justify-items: center;
+	}
+`;
 
 export default () => {
-	const mobile = (
+	return (
 		<Group>
-			<div>
-				<BackButton />
-			</div>
+			<BackButton />
 
 			<Title>
-				{" "}
 				<Inline>
 					<Console>~$</Console>
 				</Inline>
 				<Inline>
 					<Typist avgTypingDelay={100} cursor={{ show: true, blink: true }}>
-						{" "}
 						<Command>cd broken_lamp </Command>
 					</Typist>
 				</Inline>
 			</Title>
 			<Center>
 				<Column>
-					<Image src="https://clay.sh/img/about/mrr.png" />
+					<ImageGroup>
+						<Image src="https://clay.sh/img/about/mrr.png" />
+						<Image src="https://clay.sh/img/about/mrr.png" />
+					</ImageGroup>
 
 					<TextGroup>
 						<Desc>
@@ -160,12 +131,16 @@ export default () => {
 							each user.
 						</Desc>
 						<Inline>
-							<a>
-								{" "}
-								<Link>GitHub</Link>
+							<a
+								rel="noopener noreferrer"
+								target="_blank"
+								href="https://picklehack.io/"
+							>
+								<LinkButton>GitHub</LinkButton>
 							</a>
-
-							<Link>Live</Link>
+							<a rel="noopener noreferrer" target="_blank" href="">
+								<LinkButton>Live</LinkButton>
+							</a>
 						</Inline>
 						<Tech>Tech: Express.js, React.js, TypeScript</Tech>
 					</TextGroup>
@@ -173,5 +148,4 @@ export default () => {
 			</Center>
 		</Group>
 	);
-	return mobile;
 };

@@ -5,7 +5,9 @@ import { Route, Switch } from "react-router-dom";
 import styled, { AnyStyledComponent } from "styled-components";
 import Home from "./components/sections/Home";
 import Brokenlamp from "./components/sections/BrokenLamp";
-
+import ACM from "./components/sections/ACM";
+import Pick from "./components/sections/Pick";
+import CRM from "./components/sections/CRM";
 const Group: AnyStyledComponent = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -34,7 +36,9 @@ const MainContent: React.FC<{}> = (): JSX.Element => {
 		<Switch>
 			<Route exact={true} path="/" component={Home} />
 			<Route path="/brokenlamp" component={Brokenlamp} />
-
+			<Route path="/acm" component={ACM} />
+			<Route path="/pickhacks" component={Pick} />
+			<Route path="/chihuahua" component={CRM} />
 			<Route component={NotFound} />
 		</Switch>
 	);
